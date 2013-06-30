@@ -27,6 +27,7 @@
 #ifndef CONV_UTIL_CUH
 #define	CONV_UTIL_CUH
 
+#include <helper_image.h>
 #include <nvmatrix.cuh>
 #include "cudamat.cuh"
 
@@ -650,7 +651,7 @@ void convLocalProbPool(NVMatrix& images, NVMatrix& rnd, NVMatrix& target, int nu
 
     }
 
-    cutilCheckMsg("convLocalPool: kernel execution failed");
+    getLastCudaError("convLocalPool: kernel execution failed");
 }
 
 
@@ -755,7 +756,7 @@ void convLocalPool(NVMatrix& images, NVMatrix& target, int numFilters,
 
     }
 
-    cutilCheckMsg("convLocalPool: kernel execution failed");
+    getLastCudaError("convLocalPool: kernel execution failed");
 }
 
 /*
@@ -862,7 +863,7 @@ void convLocalProbPoolCu(cudamat* images, cudamat* rnd, cudamat* target, int num
 
     }
 
-    cutilCheckMsg("convLocalPool: kernel execution failed");
+    getLastCudaError("convLocalPool: kernel execution failed");
 }
 
 /*
@@ -967,7 +968,7 @@ void convLocalPoolCu(cudamat* images, cudamat* target, int numFilters, int subsX
 
     }
 
-    cutilCheckMsg("convLocalPool: kernel execution failed");
+    getLastCudaError("convLocalPool: kernel execution failed");
 }
 
 #endif	/* CONV_UTIL_CUH */

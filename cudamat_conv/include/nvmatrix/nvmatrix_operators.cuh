@@ -27,7 +27,8 @@
 #ifndef NVMATRIX_OPERATORS_CUH
 #define	NVMATRIX_OPERATORS_CUH
 
-#include <cutil_inline.h>
+//#include <cutil_inline.h>
+#include <helper_cuda.h>
 
 class NVMatrixOps {
 public:

@@ -945,7 +945,7 @@ void _weightActs(NVMatrix& images, NVMatrix& hidActs, NVMatrix& targets,
             }
         }
     }
-    cutilCheckMsg("weightActs: kernel execution failed");
+    getLastCudaError("weightActs: kernel execution failed");
 }
 
 extern "C" void _weightActsCu(cudamat* images, cudamat* hidActs, cudamat* targets,
@@ -1320,7 +1320,7 @@ extern "C" void _weightActsCu(cudamat* images, cudamat* hidActs, cudamat* target
             }
         }
     }
-    cutilCheckMsg("weightActs: kernel execution failed");
+    getLastCudaError("weightActs: kernel execution failed");
 }
 void convWeightActs(NVMatrix& images, NVMatrix& hidActs, NVMatrix& targets,
                        int numModulesX, int filterSize, int paddingStart, int moduleStride, int numImgColors, int numGroups, int partialSum) {
@@ -1575,7 +1575,7 @@ void _weightActsSparse(NVMatrix& images, NVMatrix& hidActs, NVMatrix& targets, i
             }
         }
     }
-    cutilCheckMsg("weightActsSparse: kernel execution failed");
+    getLastCudaError("weightActsSparse: kernel execution failed");
 }
 
 void convWeightActsSparse(NVMatrix& images, NVMatrix& hidActs, NVMatrix& targets, int* dColorIndices,
