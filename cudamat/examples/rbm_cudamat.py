@@ -15,7 +15,7 @@ dev_dat = cm.CUDAMatrix(cm.reformat(dat/255.))
 epsilon = 0.1
 momentum = 0.9
 
-num_epochs = 3
+num_epochs = 30
 batch_size = 128
 num_batches = dat.shape[1]/batch_size
 
@@ -94,4 +94,4 @@ for epoch in range(num_epochs):
 w_vh.copy_to_host()
 util.save('weights.dat', 'w_vh', {'w_vh': w_vh.numpy_array})
 
-#cm.cublas_shutdown()
+cm.cublas_shutdown()
